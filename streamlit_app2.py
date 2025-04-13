@@ -187,11 +187,12 @@ elif selected_tab in categories:
         stat_table = pd.DataFrame({
             "Comparison": list(significance.keys()),
             "Significant": ["Yes" if significance[p] == 1 else "No" for p in significance],
-            "ANOVA P": [row["P-Value"]]*len(significance),
-            "Kruskal P": [row["Kruskal P"]]*len(significance),
-            "Eta-Squared": [row["Eta-Squared"]]*len(significance),
+            "ANOVA P": [f"{row['P-Value']:.4f}"] * len(significance),
+            "Kruskal P": [f"{row['Kruskal P']:.4f}"] * len(significance),
+            "Eta-Squared": [f"{row['Eta-Squared']:.4f}"] * len(significance),
         })
         st.dataframe(stat_table, use_container_width=True)
+
 
 
 
